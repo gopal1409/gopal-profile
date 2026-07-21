@@ -1,0 +1,16 @@
+{
+  "name": "Gopal Das - DevOps Consultant & Enterprise Architect",
+  "short_name": "Gopal Das",
+  "description": "Senior DevOps Consultant with 28+ years experience in CI/CD, Kubernetes, and Cloud Architecture",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#38bdf8",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

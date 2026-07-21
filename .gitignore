@@ -1,0 +1,44 @@
+# Node modules
+/node_modules
+
+# Build output
+/dist
+/build
+
+# Local env files
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode
+.idea
+*.suo
+*.ntvs* 
+*.njsproj
+*.sln
+*.sw?
+
+# Dependency directories
+.pnpm-store
+
+# Vite cache
+/.vite
+
+# Test coverage
+/coverage
+
+# Misc
+*.log
+
+# Docker
+docker-compose.override.yml
