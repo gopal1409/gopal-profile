@@ -1,6 +1,20 @@
-import { Box, Container, Typography, Grid, Paper, Chip, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Paper,
+  Chip,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from '@mui/material';
 import { motion } from 'framer-motion';
-import { ExpandMore as ExpandMoreIcon, School as SchoolIcon, Timer as TimerIcon } from '@mui/icons-material';
+import {
+  ExpandMore as ExpandMoreIcon,
+  School as SchoolIcon,
+  Timer as TimerIcon,
+} from '@mui/icons-material';
 import SectionHeader from '@components/ui/SectionHeader';
 import { trainingPrograms } from '@utils/resumeData';
 
@@ -53,11 +67,12 @@ const Training = () => {
                       left: 0,
                       right: 0,
                       height: 4,
-                      background: index === 0
-                        ? 'linear-gradient(90deg, #38bdf8, #8b5cf6)'
-                        : index === 1
-                        ? 'linear-gradient(90deg, #f59e0b, #ef4444)'
-                        : 'linear-gradient(90deg, #10b981, #38bdf8)',
+                      background:
+                        index === 0
+                          ? 'linear-gradient(90deg, #38bdf8, #8b5cf6)'
+                          : index === 1
+                            ? 'linear-gradient(90deg, #f59e0b, #ef4444)'
+                            : 'linear-gradient(90deg, #10b981, #38bdf8)',
                     },
                   }}
                 >
@@ -75,7 +90,10 @@ const Training = () => {
                     />
                   </Box>
 
-                  <Typography variant="h5" sx={{ fontWeight: 700, mb: 1.5, color: 'text.primary', fontSize: '1.2rem' }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ fontWeight: 700, mb: 1.5, color: 'text.primary', fontSize: '1.2rem' }}
+                  >
                     {program.title}
                   </Typography>
 
@@ -86,7 +104,10 @@ const Training = () => {
                     </Typography>
                   </Box>
 
-                  <Typography variant="overline" sx={{ color: 'text.secondary', fontSize: '0.7rem', mb: 1.5, display: 'block' }}>
+                  <Typography
+                    variant="overline"
+                    sx={{ color: 'text.secondary', fontSize: '0.7rem', mb: 1.5, display: 'block' }}
+                  >
                     MODULES
                   </Typography>
 
@@ -113,12 +134,19 @@ const Training = () => {
                             '& .MuiAccordionSummary-content': { my: 0.5 },
                           }}
                         >
-                          <Typography variant="body2" sx={{ fontWeight: 600, color: 'text.primary' }}>
+                          <Typography
+                            variant="body2"
+                            sx={{ fontWeight: 600, color: 'text.primary' }}
+                          >
                             {moduleIndex + 1}. {module.name}
                           </Typography>
                         </AccordionSummary>
                         <AccordionDetails sx={{ pt: 0 }}>
-                          <Typography variant="caption" color="text.secondary" sx={{ display: 'block' }}>
+                          <Typography
+                            variant="caption"
+                            color="text.secondary"
+                            sx={{ display: 'block' }}
+                          >
                             <strong style={{ color: '#94a3b8' }}>Tools:</strong> {module.tools}
                           </Typography>
                         </AccordionDetails>

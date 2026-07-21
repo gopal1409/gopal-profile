@@ -13,7 +13,7 @@ export const smoothScrollTo = (elementId, offset = 80) => {
   }
 };
 
-export const formatNumber = (num) => {
+export const formatNumber = num => {
   if (num >= 1000) return `${(num / 1000).toFixed(0)}k+`;
   return `${num}+`;
 };
@@ -39,7 +39,7 @@ export const throttle = (func, limit) => {
 
 export const generateId = () => Math.random().toString(36).substr(2, 9);
 
-export const copyToClipboard = async (text) => {
+export const copyToClipboard = async text => {
   try {
     await navigator.clipboard.writeText(text);
     return true;

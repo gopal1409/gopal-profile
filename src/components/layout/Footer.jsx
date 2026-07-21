@@ -54,10 +54,11 @@ const Footer = () => {
                 </Typography>
               </Box>
               <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 300, mb: 3 }}>
-                Senior DevOps Consultant & Enterprise Solution Architect with 28+ years of experience transforming organizations through modern DevOps practices.
+                Senior DevOps Consultant & Enterprise Solution Architect with 28+ years of
+                experience transforming organizations through modern DevOps practices.
               </Typography>
               <Box sx={{ display: 'flex', gap: 1 }}>
-                {socialLinks.map((social) => (
+                {socialLinks.map(social => (
                   <IconButton
                     key={social.label}
                     href={social.href}
@@ -94,12 +95,12 @@ const Footer = () => {
                 Quick Links
               </Typography>
               <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-                {NAV_LINKS.map((link) => (
+                {NAV_LINKS.map(link => (
                   <Box component="li" key={link.label} sx={{ mb: 1 }}>
                     <Typography
                       component="a"
                       href={link.href}
-                      onClick={(e) => {
+                      onClick={e => {
                         e.preventDefault();
                         smoothScrollTo(link.href.replace('#', ''));
                       }}
@@ -134,13 +135,19 @@ const Footer = () => {
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
                 <Typography variant="body2" color="text.secondary">
                   <strong style={{ color: '#f1f5f9' }}>Email:</strong>{' '}
-                  <a href={`mailto:${personalInfo.email}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                  <a
+                    href={`mailto:${personalInfo.email}`}
+                    style={{ color: 'inherit', textDecoration: 'none' }}
+                  >
                     {personalInfo.email}
                   </a>
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   <strong style={{ color: '#f1f5f9' }}>Phone:</strong>{' '}
-                  <a href={`tel:${personalInfo.phone}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                  <a
+                    href={`tel:${personalInfo.phone}`}
+                    style={{ color: 'inherit', textDecoration: 'none' }}
+                  >
                     {personalInfo.phone}
                   </a>
                 </Typography>
@@ -148,7 +155,8 @@ const Footer = () => {
                   <strong style={{ color: '#f1f5f9' }}>Location:</strong> {personalInfo.location}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  <strong style={{ color: '#f1f5f9' }}>Availability:</strong> {personalInfo.availability}
+                  <strong style={{ color: '#f1f5f9' }}>Availability:</strong>{' '}
+                  {personalInfo.availability}
                 </Typography>
               </Box>
             </motion.div>

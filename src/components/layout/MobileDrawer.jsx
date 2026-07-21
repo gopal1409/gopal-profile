@@ -1,4 +1,14 @@
-import { Drawer, Box, List, ListItem, ListItemButton, ListItemText, Divider, Button, Typography } from '@mui/material';
+import {
+  Drawer,
+  Box,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Divider,
+  Button,
+  Typography,
+} from '@mui/material';
 import { motion } from 'framer-motion';
 import { NAV_LINKS } from '@utils/constants';
 
@@ -47,12 +57,8 @@ const MobileDrawer = ({ open, onClose, activeSection, onNavClick }) => {
                     sx={{
                       borderRadius: 2,
                       py: 1.2,
-                      backgroundColor: isActive
-                        ? 'rgba(56, 189, 248, 0.1)'
-                        : 'transparent',
-                      borderLeft: isActive
-                        ? '3px solid #38bdf8'
-                        : '3px solid transparent',
+                      backgroundColor: isActive ? 'rgba(56, 189, 248, 0.1)' : 'transparent',
+                      borderLeft: isActive ? '3px solid #38bdf8' : '3px solid transparent',
                       '&:hover': {
                         backgroundColor: 'rgba(56, 189, 248, 0.08)',
                       },

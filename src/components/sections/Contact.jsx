@@ -1,5 +1,16 @@
 import { useState, useCallback } from 'react';
-import { Box, Container, Typography, Grid, Paper, TextField, Button, MenuItem, Alert, CircularProgress } from '@mui/material';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Paper,
+  TextField,
+  Button,
+  MenuItem,
+  Alert,
+  CircularProgress,
+} from '@mui/material';
 import { motion } from 'framer-motion';
 import {
   Send as SendIcon,
@@ -32,58 +43,60 @@ const validationRules = {
   name: { required: true, requiredMessage: 'Full name is required' },
   email: { required: true, email: true, requiredMessage: 'Email is required' },
   service: { required: true, requiredMessage: 'Please select a service' },
-  message: { required: true, minLength: 10, requiredMessage: 'Message is required', minLengthMessage: 'Message must be at least 10 characters' },
+  message: {
+    required: true,
+    minLength: 10,
+    requiredMessage: 'Message is required',
+    minLengthMessage: 'Message must be at least 10 characters',
+  },
 };
 
 const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const {
-    values,
-    errors,
-    touched,
-    handleChange,
-    handleBlur,
-    handleSubmit,
-    resetForm,
-  } = useFormValidation(
-    { name: '', email: '', phone: '', company: '', service: '', message: '' },
-    validationRules
+  const { values, errors, touched, handleChange, handleBlur, handleSubmit, resetForm } =
+    useFormValidation(
+      { name: '', email: '', phone: '', company: '', service: '', message: '' },
+      validationRules
+    );
+
+  const onSubmit = useCallback(
+    async formValues => {
+      setIsSubmitting(true);
+      setSubmitStatus(null);
+
+      try {
+        // EmailJS integration
+        const templateParams = {
+          from_name: formValues.name,
+          from_email: formValues.email,
+          phone: formValues.phone || 'Not provided',
+          company: formValues.company || 'Not provided',
+          service:
+            serviceOptions.find(s => s.value === formValues.service)?.label || formValues.service,
+          message: formValues.message,
+          to_email: personalInfo.email,
+        };
+
+        await emailjs.send(
+          EMAILJS_CONFIG.serviceId,
+          EMAILJS_CONFIG.templateId,
+          templateParams,
+          EMAILJS_CONFIG.publicKey
+        );
+
+        setSubmitStatus('success');
+        resetForm();
+      } catch (error) {
+        console.error('EmailJS Error:', error);
+        setSubmitStatus('error');
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+    [resetForm]
   );
-
-  const onSubmit = useCallback(async (formValues) => {
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      // EmailJS integration
-      const templateParams = {
-        from_name: formValues.name,
-        from_email: formValues.email,
-        phone: formValues.phone || 'Not provided',
-        company: formValues.company || 'Not provided',
-        service: serviceOptions.find((s) => s.value === formValues.service)?.label || formValues.service,
-        message: formValues.message,
-        to_email: personalInfo.email,
-      };
-
-      await emailjs.send(
-        EMAILJS_CONFIG.serviceId,
-        EMAILJS_CONFIG.templateId,
-        templateParams,
-        EMAILJS_CONFIG.publicKey
-      );
-
-      setSubmitStatus('success');
-      resetForm();
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  }, [resetForm]);
 
   const contactDetails = [
     {
@@ -143,7 +156,8 @@ const Contact = () => {
               </Typography>
 
               <Typography variant="body1" color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
-                Whether you need enterprise DevOps transformation, CI/CD modernization, Kubernetes platform engineering, or hands-on training for your teams — I&apos;m here to help.
+                Whether you need enterprise DevOps transformation, CI/CD modernization, Kubernetes
+                platform engineering, or hands-on training for your teams — I&apos;m here to help.
               </Typography>
 
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, mb: 4 }}>
@@ -172,10 +186,12 @@ const Contact = () => {
                         textDecoration: 'none',
                         color: 'inherit',
                         transition: 'all 0.3s ease',
-                        '&:hover': detail.href ? {
-                          borderColor: 'primary.main',
-                          backgroundColor: 'rgba(56, 189, 248, 0.05)',
-                        } : {},
+                        '&:hover': detail.href
+                          ? {
+                              borderColor: 'primary.main',
+                              backgroundColor: 'rgba(56, 189, 248, 0.05)',
+                            }
+                          : {},
                       }}
                     >
                       <Box
@@ -258,25 +274,20 @@ const Contact = () => {
                 </Typography>
 
                 {submitStatus === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                  >
+                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
                     <Alert
                       severity="success"
                       icon={<CheckCircleIcon />}
                       sx={{ mb: 3, borderRadius: 2 }}
                     >
-                      Thank you! Your enquiry has been sent successfully. I&apos;ll get back to you within 24 hours.
+                      Thank you! Your enquiry has been sent successfully. I&apos;ll get back to you
+                      within 24 hours.
                     </Alert>
                   </motion.div>
                 )}
 
                 {submitStatus === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                  >
+                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
                     <Alert severity="error" sx={{ mb: 3, borderRadius: 2 }}>
                       Something went wrong. Please try again or contact me directly via email.
                     </Alert>
@@ -351,7 +362,7 @@ const Contact = () => {
                         helperText={touched.service && errors.service}
                         disabled={isSubmitting}
                       >
-                        {serviceOptions.map((option) => (
+                        {serviceOptions.map(option => (
                           <MenuItem key={option.value} value={option.value}>
                             {option.label}
                           </MenuItem>
@@ -382,7 +393,9 @@ const Contact = () => {
                     variant="contained"
                     size="large"
                     disabled={isSubmitting}
-                    startIcon={isSubmitting ? <CircularProgress size={20} color="inherit" /> : <SendIcon />}
+                    startIcon={
+                      isSubmitting ? <CircularProgress size={20} color="inherit" /> : <SendIcon />
+                    }
                     sx={{
                       mt: 3,
                       py: 1.5,

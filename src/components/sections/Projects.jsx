@@ -1,6 +1,14 @@
 import { Box, Container, Typography, Paper, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
-import { Timeline as MuiTimeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot, TimelineOppositeContent } from '@mui/lab';
+import {
+  Timeline as MuiTimeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+  TimelineOppositeContent,
+} from '@mui/lab';
 import { CalendarToday as CalendarIcon } from '@mui/icons-material';
 import SectionHeader from '@components/ui/SectionHeader';
 import { projects } from '@utils/resumeData';
@@ -21,7 +29,10 @@ const Projects = () => {
           subtitle="Enterprise-scale DevOps transformation initiatives delivered for global organizations."
         />
 
-        <MuiTimeline position="alternate" sx={{ p: 0, '& .MuiTimelineItem-root::before': { display: { xs: 'none', md: 'block' } } }}>
+        <MuiTimeline
+          position="alternate"
+          sx={{ p: 0, '& .MuiTimelineItem-root::before': { display: { xs: 'none', md: 'block' } } }}
+        >
           {projects.map((project, index) => (
             <TimelineItem key={project.title}>
               <TimelineOppositeContent
@@ -88,16 +99,23 @@ const Projects = () => {
                       />
                     </Box>
 
-                    <Typography variant="h5" sx={{ fontWeight: 700, mb: 1, color: 'text.primary', fontSize: '1.15rem' }}>
+                    <Typography
+                      variant="h5"
+                      sx={{ fontWeight: 700, mb: 1, color: 'text.primary', fontSize: '1.15rem' }}
+                    >
                       {project.title}
                     </Typography>
 
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2, lineHeight: 1.7 }}>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ mb: 2, lineHeight: 1.7 }}
+                    >
                       {project.description}
                     </Typography>
 
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mb: 2 }}>
-                      {project.tools.map((tool) => (
+                      {project.tools.map(tool => (
                         <Chip
                           key={tool}
                           label={tool}

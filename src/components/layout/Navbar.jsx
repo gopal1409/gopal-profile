@@ -10,11 +10,7 @@ import {
   useMediaQuery,
   Container,
 } from '@mui/material';
-import {
-  Menu as MenuIcon,
-  Close as CloseIcon,
-  Code as CodeIcon,
-} from '@mui/icons-material';
+import { Menu as MenuIcon, Close as CloseIcon, Code as CodeIcon } from '@mui/icons-material';
 import { motion, AnimatePresence } from 'framer-motion';
 import MobileDrawer from './MobileDrawer';
 import { NAV_LINKS } from '@utils/constants';
@@ -34,7 +30,7 @@ const Navbar = () => {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = NAV_LINKS.map((link) => link.href.replace('#', ''));
+      const sections = NAV_LINKS.map(link => link.href.replace('#', ''));
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -50,14 +46,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = useCallback((href) => {
+  const handleNavClick = useCallback(href => {
     const sectionId = href.replace('#', '');
     smoothScrollTo(sectionId);
     setMobileOpen(false);
   }, []);
 
   const toggleDrawer = useCallback(() => {
-    setMobileOpen((prev) => !prev);
+    setMobileOpen(prev => !prev);
   }, []);
 
   return (
@@ -66,16 +62,15 @@ const Navbar = () => {
         position="fixed"
         elevation={trigger ? 4 : 0}
         sx={{
-          backgroundColor: trigger
-            ? 'rgba(15, 23, 42, 0.95)'
-            : 'transparent',
+          backgroundColor: trigger ? 'rgba(15, 23, 42, 0.95)' : 'transparent',
           backdropFilter: trigger ? 'blur(12px)' : 'none',
-          borderBottom: trigger
-            ? '1px solid rgba(148, 163, 184, 0.1)'
-            : '1px solid transparent',
-          transition: theme.transitions.create(['background-color', 'backdrop-filter', 'border-color'], {
-            duration: 300,
-          }),
+          borderBottom: trigger ? '1px solid rgba(148, 163, 184, 0.1)' : '1px solid transparent',
+          transition: theme.transitions.create(
+            ['background-color', 'backdrop-filter', 'border-color'],
+            {
+              duration: 300,
+            }
+          ),
         }}
       >
         <Container maxWidth="xl">
@@ -130,7 +125,9 @@ const Navbar = () => {
                             position: 'absolute',
                             bottom: 4,
                             left: '50%',
-                            transform: isActive ? 'translateX(-50%) scaleX(1)' : 'translateX(-50%) scaleX(0)',
+                            transform: isActive
+                              ? 'translateX(-50%) scaleX(1)'
+                              : 'translateX(-50%) scaleX(0)',
                             width: '60%',
                             height: 2,
                             backgroundColor: 'primary.main',

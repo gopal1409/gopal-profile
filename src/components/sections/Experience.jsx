@@ -20,7 +20,7 @@ const Experience = () => {
           subtitle="A track record of delivering enterprise-scale DevOps transformation and cloud modernization initiatives."
         />
 
-        {experience.map((job) => (
+        {experience.map(job => (
           <motion.div
             key={job.company}
             initial={{ opacity: 0, y: 30 }}
@@ -50,12 +50,24 @@ const Experience = () => {
               }}
             >
               {/* Header */}
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'space-between', gap: 2, mb: 3 }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  alignItems: 'flex-start',
+                  justifyContent: 'space-between',
+                  gap: 2,
+                  mb: 3,
+                }}
+              >
                 <Box>
                   <Typography variant="h4" sx={{ fontWeight: 700, mb: 0.5, color: 'text.primary' }}>
                     {job.company}
                   </Typography>
-                  <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 600, fontSize: '1.1rem' }}>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: 'primary.main', fontWeight: 600, fontSize: '1.1rem' }}
+                  >
                     {job.role}
                   </Typography>
                 </Box>

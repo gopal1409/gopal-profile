@@ -5,7 +5,8 @@
 
 export const personalInfo = {
   name: 'Gopal Das',
-  title: 'DevOps Consultant | Enterprise DevOps Architect | CI/CD & Cloud Transformation Specialist',
+  title:
+    'DevOps Consultant | Enterprise DevOps Architect | CI/CD & Cloud Transformation Specialist',
   email: 'gopal1409@gmail.com',
   phone: '+91-9537126262',
   linkedin: 'https://linkedin.com/in/gopaldevops',
@@ -108,7 +109,15 @@ export const skills = [
   {
     category: 'CI/CD Tools',
     icon: 'Sync',
-    technologies: ['GitLab CI', 'Jenkins', 'Azure DevOps', 'Bamboo', 'TeamCity', 'ArgoCD', 'Spinnaker'],
+    technologies: [
+      'GitLab CI',
+      'Jenkins',
+      'Azure DevOps',
+      'Bamboo',
+      'TeamCity',
+      'ArgoCD',
+      'Spinnaker',
+    ],
   },
   {
     category: 'Container Platforms',
@@ -118,7 +127,16 @@ export const skills = [
   {
     category: 'IaC & Automation',
     icon: 'Construction',
-    technologies: ['Terraform', 'Ansible', 'CloudFormation', 'Puppet', 'Chef', 'Ansible Tower', 'Vault', 'Consul'],
+    technologies: [
+      'Terraform',
+      'Ansible',
+      'CloudFormation',
+      'Puppet',
+      'Chef',
+      'Ansible Tower',
+      'Vault',
+      'Consul',
+    ],
   },
   {
     category: 'Cloud Platforms',
@@ -133,7 +151,15 @@ export const skills = [
   {
     category: 'Monitoring & Observability',
     icon: 'Assessment',
-    technologies: ['Prometheus', 'Grafana', 'ELK Stack', 'OpenTelemetry', 'Loki', 'Splunk', 'Zabbix'],
+    technologies: [
+      'Prometheus',
+      'Grafana',
+      'ELK Stack',
+      'OpenTelemetry',
+      'Loki',
+      'Splunk',
+      'Zabbix',
+    ],
   },
   {
     category: 'Build & Scripting',
@@ -179,7 +205,8 @@ export const projects = [
     title: 'Enterprise GitLab DevOps Platform Implementation',
     duration: '1 Year',
     tools: ['GitLab', 'GitLab Runner', 'Kubernetes', 'Docker', 'AquaSec'],
-    description: 'Implemented GitLab as a centralized enterprise DevOps platform with standardized CI/CD templates, governance-driven release models, and integrated security scanning.',
+    description:
+      'Implemented GitLab as a centralized enterprise DevOps platform with standardized CI/CD templates, governance-driven release models, and integrated security scanning.',
     outcomes: [
       'Centralized DevOps platform for 500+ developers',
       'Standardized CI/CD templates reducing pipeline setup time by 80%',
@@ -191,7 +218,8 @@ export const projects = [
     title: 'Enterprise DevSecOps Pipeline using GitOps & Azure DevOps',
     duration: '6 Months',
     tools: ['Azure DevOps', 'GitOps', 'ArgoCD', 'Kubernetes', 'Terraform', 'SonarQube', 'Snyk'],
-    description: 'Designed and implemented enterprise DevSecOps pipelines using Azure DevOps with GitOps-driven deployment automation.',
+    description:
+      'Designed and implemented enterprise DevSecOps pipelines using Azure DevOps with GitOps-driven deployment automation.',
     outcomes: [
       'GitOps-driven deployment automation using ArgoCD and Kubernetes',
       'Automated code quality validation and vulnerability scanning',
@@ -203,7 +231,8 @@ export const projects = [
     title: 'SVN to Git Migration for 1000+ Repositories',
     duration: '3 Months',
     tools: ['SVN', 'Git', 'Shell Scripting'],
-    description: 'Migrated enterprise repositories from SVN to Git with full history retention, branching standards, and repository governance.',
+    description:
+      'Migrated enterprise repositories from SVN to Git with full history retention, branching standards, and repository governance.',
     outcomes: [
       'Migrated 1000+ repositories with full history retention',
       'Defined branching standards and repository governance',
@@ -215,7 +244,8 @@ export const projects = [
     title: 'Air-Gapped Kubernetes Platform Deployment',
     duration: '1 Week',
     tools: ['Kubernetes', 'Apache Airflow'],
-    description: 'Designed and deployed a fully disconnected Kubernetes platform for government organizations with strict security requirements.',
+    description:
+      'Designed and deployed a fully disconnected Kubernetes platform for government organizations with strict security requirements.',
     outcomes: [
       'Fully disconnected Kubernetes platform',
       'Secure deployment workflows in restricted environments',
@@ -227,7 +257,8 @@ export const projects = [
     title: 'Enterprise Service Mesh & Monitoring Platform',
     duration: '3 Months',
     tools: ['OpenShift', 'Istio', 'Jenkins', 'Nexus', 'EFK'],
-    description: 'Implemented service mesh architecture for enterprise microservices with observability, monitoring, and traffic governance.',
+    description:
+      'Implemented service mesh architecture for enterprise microservices with observability, monitoring, and traffic governance.',
     outcomes: [
       'Service mesh architecture for enterprise microservices',
       'Full observability, monitoring, and traffic governance',
@@ -239,7 +270,8 @@ export const projects = [
     title: 'GitHub-Based CI/CD for Cloud-Native Deployments',
     duration: '2 Months',
     tools: ['GitHub', 'AWS', 'GCP', 'ArgoCD', 'JIRA'],
-    description: 'Automated deployment pipelines across AWS and GCP environments using GitHub workflows and GitOps principles.',
+    description:
+      'Automated deployment pipelines across AWS and GCP environments using GitHub workflows and GitOps principles.',
     outcomes: [
       'Multi-cloud deployment automation across AWS and GCP',
       'GitHub workflows with deployment governance',
@@ -250,47 +282,96 @@ export const projects = [
 ];
 
 export const clients = [
-  'IBM', 'Accenture', 'Deloitte', 'Siemens', 'Ericsson', 'Walmart',
-  'Barclays', 'HSBC', 'Fidelity', 'Intel', 'British Telecom', 'Infosys',
-  'TCS', 'Cognizant', 'Tech Mahindra', 'UBS', 'Wells Fargo', 'Capital One',
-  'Orange', 'Volkswagen Finance', 'Schneider Electric', 'Mercedes Benz',
-  'VMware', 'NEC Technologies', 'Palo Alto Networks', 'Optum', 'Synechron', 'Viacom18',
+  'IBM',
+  'Accenture',
+  'Deloitte',
+  'Siemens',
+  'Ericsson',
+  'Walmart',
+  'Barclays',
+  'HSBC',
+  'Fidelity',
+  'Intel',
+  'British Telecom',
+  'Infosys',
+  'TCS',
+  'Cognizant',
+  'Tech Mahindra',
+  'UBS',
+  'Wells Fargo',
+  'Capital One',
+  'Orange',
+  'Volkswagen Finance',
+  'Schneider Electric',
+  'Mercedes Benz',
+  'VMware',
+  'NEC Technologies',
+  'Palo Alto Networks',
+  'Optum',
+  'Synechron',
+  'Viacom18',
 ];
 
 export const services = [
   {
     title: 'Enterprise DevOps Consulting',
-    description: 'End-to-end DevOps transformation strategy, assessment, and implementation for large-scale enterprises.',
+    description:
+      'End-to-end DevOps transformation strategy, assessment, and implementation for large-scale enterprises.',
     icon: 'Business',
     features: ['Maturity Assessment', 'Roadmap Design', 'Implementation', 'Governance Framework'],
   },
   {
     title: 'CI/CD Implementation',
-    description: 'Design and implement enterprise-grade CI/CD pipelines using GitHub, GitLab, Azure DevOps, and Jenkins.',
+    description:
+      'Design and implement enterprise-grade CI/CD pipelines using GitHub, GitLab, Azure DevOps, and Jenkins.',
     icon: 'Sync',
-    features: ['Pipeline Architecture', 'GitOps Setup', 'Security Integration', 'Release Automation'],
+    features: [
+      'Pipeline Architecture',
+      'GitOps Setup',
+      'Security Integration',
+      'Release Automation',
+    ],
   },
   {
     title: 'Cloud & Kubernetes Transformation',
-    description: 'Architect and deploy cloud-native solutions on AWS, Azure, GCP with Kubernetes platform engineering.',
+    description:
+      'Architect and deploy cloud-native solutions on AWS, Azure, GCP with Kubernetes platform engineering.',
     icon: 'Cloud',
-    features: ['Multi-Cloud Strategy', 'K8s Platform Design', 'IaC Implementation', 'Cost Optimization'],
+    features: [
+      'Multi-Cloud Strategy',
+      'K8s Platform Design',
+      'IaC Implementation',
+      'Cost Optimization',
+    ],
   },
   {
     title: 'DevSecOps Pipeline Creation',
-    description: 'Integrate security into every stage of the software delivery lifecycle with automated compliance.',
+    description:
+      'Integrate security into every stage of the software delivery lifecycle with automated compliance.',
     icon: 'Security',
-    features: ['Shift-Left Security', 'Vulnerability Scanning', 'Policy Enforcement', 'Compliance Automation'],
+    features: [
+      'Shift-Left Security',
+      'Vulnerability Scanning',
+      'Policy Enforcement',
+      'Compliance Automation',
+    ],
   },
   {
     title: 'SCM Migration & Modernization',
-    description: 'Migrate legacy version control systems to modern Git-based platforms with full history preservation.',
+    description:
+      'Migrate legacy version control systems to modern Git-based platforms with full history preservation.',
     icon: 'SwapHoriz',
-    features: ['SVN to Git Migration', 'Repository Governance', 'Workflow Optimization', 'Team Training'],
+    features: [
+      'SVN to Git Migration',
+      'Repository Governance',
+      'Workflow Optimization',
+      'Team Training',
+    ],
   },
   {
     title: 'Corporate Training Programs',
-    description: 'Hands-on, implementation-focused training for architects, leads, and developers at all levels.',
+    description:
+      'Hands-on, implementation-focused training for architects, leads, and developers at all levels.',
     icon: 'School',
     features: ['Custom Curriculum', 'Hands-on Labs', 'Real Scenarios', 'Certification Prep'],
   },
@@ -302,8 +383,14 @@ export const trainingPrograms = [
     level: 'Advanced',
     duration: '5 Days',
     modules: [
-      { name: 'Introduction to AIOps & Kubernetes', tools: 'Prometheus, Grafana, Minikube, Helm, IsolationForest' },
-      { name: 'Monitoring & Observability with AI', tools: 'OpenTelemetry, ELK, FluentBit, LangChain' },
+      {
+        name: 'Introduction to AIOps & Kubernetes',
+        tools: 'Prometheus, Grafana, Minikube, Helm, IsolationForest',
+      },
+      {
+        name: 'Monitoring & Observability with AI',
+        tools: 'OpenTelemetry, ELK, FluentBit, LangChain',
+      },
       { name: 'Incident Management & Root Cause Analysis', tools: 'Neo4j, Ollama, LangChain' },
       { name: 'Predictive Scaling & Optimization', tools: 'KEDA, Prophet, Python, HPA' },
       { name: 'Security, Threat Detection & Drift Enforcement', tools: 'Falco, KubeArmor, Ollama' },

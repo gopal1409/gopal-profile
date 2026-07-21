@@ -12,7 +12,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext js,jsx --fix",
     "format": "prettier --write src/**/*.{js,jsx,css,json}",
-    "test": "vitest",
+    "test": "vitest run --passWithNoTests",
     "docker:build": "docker build -t gopal-portfolio .",
     "docker:run": "docker run -p 80:80 gopal-portfolio",
     "docker:compose": "docker-compose up --build",

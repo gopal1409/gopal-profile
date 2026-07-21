@@ -87,7 +87,10 @@ const Certifications = () => {
                     {cert.abbr}
                   </Typography>
 
-                  <Typography variant="body2" sx={{ fontWeight: 600, color: 'text.primary', mb: 0.5 }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ fontWeight: 600, color: 'text.primary', mb: 0.5 }}
+                  >
                     {cert.name}
                   </Typography>
 

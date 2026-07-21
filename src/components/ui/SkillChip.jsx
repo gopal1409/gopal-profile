@@ -2,7 +2,6 @@ import { Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const SkillChip = ({ label, icon, delay = 0 }) => {
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}

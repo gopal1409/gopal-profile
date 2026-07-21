@@ -105,16 +105,23 @@ const Services = () => {
                       <IconComponent sx={{ fontSize: 28 }} />
                     </Box>
 
-                    <Typography variant="h5" sx={{ fontWeight: 700, mb: 1.5, color: 'text.primary' }}>
+                    <Typography
+                      variant="h5"
+                      sx={{ fontWeight: 700, mb: 1.5, color: 'text.primary' }}
+                    >
                       {service.title}
                     </Typography>
 
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2.5, lineHeight: 1.7 }}>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ mb: 2.5, lineHeight: 1.7 }}
+                    >
                       {service.description}
                     </Typography>
 
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
-                      {service.features.map((feature) => (
+                      {service.features.map(feature => (
                         <Chip
                           key={feature}
                           label={feature}

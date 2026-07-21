@@ -4,7 +4,8 @@
  */
 
 export const typography = {
-  fontFamily: '"Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  fontFamily:
+    '"Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   fontFamilyMono: '"JetBrains Mono Variable", "JetBrains Mono", "Fira Code", monospace',
   h1: {
     fontSize: 'clamp(2.5rem, 5vw, 4rem)',

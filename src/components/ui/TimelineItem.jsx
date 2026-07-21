@@ -82,7 +82,7 @@ const TimelineItem = ({ project, index, isLast }) => {
             </Typography>
 
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mb: 2 }}>
-              {project.tools.map((tool) => (
+              {project.tools.map(tool => (
                 <Chip
                   key={tool}
                   label={tool}

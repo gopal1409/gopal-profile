@@ -19,9 +19,12 @@ export const ThemeProvider = ({ children }) => {
     setMounted(true);
   }, []);
 
-  const value = useMemo(() => ({
-    mounted,
-  }), [mounted]);
+  const value = useMemo(
+    () => ({
+      mounted,
+    }),
+    [mounted]
+  );
 
   return (
     <ThemeContext.Provider value={value}>

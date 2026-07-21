@@ -25,7 +25,6 @@ const iconMap = {
 };
 
 const Skills = () => {
-
   return (
     <Box
       id="skills"
@@ -85,7 +84,10 @@ const Skills = () => {
                       >
                         <IconComponent sx={{ fontSize: 22 }} />
                       </Box>
-                      <Typography variant="h6" sx={{ fontWeight: 600, color: 'primary.main', fontSize: '1rem' }}>
+                      <Typography
+                        variant="h6"
+                        sx={{ fontWeight: 600, color: 'primary.main', fontSize: '1rem' }}
+                      >
                         {skillCategory.category}
                       </Typography>
                     </Box>
@@ -97,7 +99,10 @@ const Skills = () => {
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
-                          transition={{ duration: 0.3, delay: categoryIndex * 0.08 + techIndex * 0.03 }}
+                          transition={{
+                            duration: 0.3,
+                            delay: categoryIndex * 0.08 + techIndex * 0.03,
+                          }}
                           whileHover={{ scale: 1.08 }}
                         >
                           <Chip

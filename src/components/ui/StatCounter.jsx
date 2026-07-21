@@ -24,12 +24,7 @@ const StatCounter = ({ value, suffix, label, delay = 0 }) => {
           }}
         >
           {inView ? (
-            <CountUp
-              end={value}
-              duration={2.5}
-              suffix={suffix}
-              separator=","
-            />
+            <CountUp end={value} duration={2.5} suffix={suffix} separator="," />
           ) : (
             `0${suffix}`
           )}

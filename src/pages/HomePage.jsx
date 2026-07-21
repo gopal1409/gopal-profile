@@ -16,7 +16,10 @@ const HomePage = () => {
     <>
       <Helmet>
         <title>Gopal Das | DevOps Consultant and Enterprise Architect</title>
-        <meta name="description" content="Senior DevOps Consultant with 28+ years experience in CI/CD, Kubernetes, Cloud Architecture, and DevSecOps transformation." />
+        <meta
+          name="description"
+          content="Senior DevOps Consultant with 28+ years experience in CI/CD, Kubernetes, Cloud Architecture, and DevSecOps transformation."
+        />
       </Helmet>
       <Box component="article">
         <Hero />

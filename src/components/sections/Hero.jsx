@@ -227,7 +227,8 @@ const Hero = () => {
                 elevation={0}
                 sx={{
                   p: { xs: 3, md: 4 },
-                  background: 'linear-gradient(180deg, rgba(30,41,59,0.9) 0%, rgba(15,23,42,0.95) 100%)',
+                  background:
+                    'linear-gradient(180deg, rgba(30,41,59,0.9) 0%, rgba(15,23,42,0.95) 100%)',
                   border: '1px solid',
                   borderColor: 'divider',
                   borderRadius: 4,
@@ -267,21 +268,37 @@ const Hero = () => {
                   {personalInfo.name}
                 </Typography>
 
-                <Typography variant="subtitle1" sx={{ color: 'primary.main', fontWeight: 600, mb: 2 }}>
+                <Typography
+                  variant="subtitle1"
+                  sx={{ color: 'primary.main', fontWeight: 600, mb: 2 }}
+                >
                   {personalInfo.role}
                 </Typography>
 
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mb: 3, color: 'text.secondary' }}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 0.5,
+                    mb: 3,
+                    color: 'text.secondary',
+                  }}
+                >
                   <LocationIcon fontSize="small" />
-                  <Typography variant="body2">{personalInfo.location} — {personalInfo.availability}</Typography>
+                  <Typography variant="body2">
+                    {personalInfo.location} — {personalInfo.availability}
+                  </Typography>
                 </Box>
 
-                <Typography variant="overline" sx={{ color: 'text.secondary', fontSize: '0.7rem', mb: 1.5, display: 'block' }}>
+                <Typography
+                  variant="overline"
+                  sx={{ color: 'text.secondary', fontSize: '0.7rem', mb: 1.5, display: 'block' }}
+                >
                   CERTIFICATIONS
                 </Typography>
 
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
-                  {certifications.map((cert) => (
+                  {certifications.map(cert => (
                     <Chip
                       key={cert.abbr}
                       label={cert.abbr}

@@ -3,27 +3,30 @@ import { motion } from 'framer-motion';
 import SectionHeader from '@components/ui/SectionHeader';
 
 const About = () => {
-
   const highlights = [
     {
       number: '28+',
       label: 'Years of Experience',
-      description: 'Transforming enterprises across telecom, banking, retail, healthcare, and government sectors.',
+      description:
+        'Transforming enterprises across telecom, banking, retail, healthcare, and government sectors.',
     },
     {
       number: '500+',
       label: 'Training Programs',
-      description: 'Delivered hands-on, implementation-focused DevOps and cloud training to Fortune 500 organizations.',
+      description:
+        'Delivered hands-on, implementation-focused DevOps and cloud training to Fortune 500 organizations.',
     },
     {
       number: '1000+',
       label: 'Repositories Migrated',
-      description: 'Successfully migrated SVN to Git with full history retention and governance standardization.',
+      description:
+        'Successfully migrated SVN to Git with full history retention and governance standardization.',
     },
     {
       number: '25+',
       label: 'Fortune 500 Clients',
-      description: 'Trusted by IBM, Accenture, Barclays, Deloitte, Siemens, Walmart, and many more.',
+      description:
+        'Trusted by IBM, Accenture, Barclays, Deloitte, Siemens, Walmart, and many more.',
     },
   ];
 
@@ -52,16 +55,40 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.8, fontSize: '1.05rem' }}>
-                I am a <strong style={{ color: '#f1f5f9' }}>Senior DevOps Consultant and Enterprise Solution Architect</strong> with extensive hands-on expertise in GitHub-based Version Control strategies, GitLab CI/CD implementation, Kubernetes platform engineering, Infrastructure as Code, DevSecOps, cloud-native automation, and enterprise release governance.
+              <Typography
+                variant="body1"
+                sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.8, fontSize: '1.05rem' }}
+              >
+                I am a{' '}
+                <strong style={{ color: '#f1f5f9' }}>
+                  Senior DevOps Consultant and Enterprise Solution Architect
+                </strong>{' '}
+                with extensive hands-on expertise in GitHub-based Version Control strategies, GitLab
+                CI/CD implementation, Kubernetes platform engineering, Infrastructure as Code,
+                DevSecOps, cloud-native automation, and enterprise release governance.
               </Typography>
 
-              <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.8, fontSize: '1.05rem' }}>
-                My approach combines <strong style={{ color: '#f1f5f9' }}>deep technical knowledge</strong> with practical implementation experience. I don&apos;t just advise — I architect, build, and deliver solutions that work in production environments at scale.
+              <Typography
+                variant="body1"
+                sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.8, fontSize: '1.05rem' }}
+              >
+                My approach combines{' '}
+                <strong style={{ color: '#f1f5f9' }}>deep technical knowledge</strong> with
+                practical implementation experience. I don&apos;t just advise — I architect, build,
+                and deliver solutions that work in production environments at scale.
               </Typography>
 
-              <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.8, fontSize: '1.05rem' }}>
-                I have successfully delivered large-scale DevOps adoption programs, CI/CD modernization initiatives, Git migration projects, and implementation-focused training engagements for organizations including <strong style={{ color: '#f1f5f9' }}>IBM, Accenture, Barclays, Deloitte, Siemens, Ericsson, Walmart, Infosys, TCS</strong>, and British Telecom.
+              <Typography
+                variant="body1"
+                sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.8, fontSize: '1.05rem' }}
+              >
+                I have successfully delivered large-scale DevOps adoption programs, CI/CD
+                modernization initiatives, Git migration projects, and implementation-focused
+                training engagements for organizations including{' '}
+                <strong style={{ color: '#f1f5f9' }}>
+                  IBM, Accenture, Barclays, Deloitte, Siemens, Ericsson, Walmart, Infosys, TCS
+                </strong>
+                , and British Telecom.
               </Typography>
 
               <Box
@@ -73,8 +100,13 @@ const About = () => {
                   borderLeft: '4px solid #38bdf8',
                 }}
               >
-                <Typography variant="body1" sx={{ color: 'text.primary', fontStyle: 'italic', lineHeight: 1.7 }}>
-                  &quot;I believe in building scalable, secure, and governance-driven delivery pipelines that empower teams to ship faster without compromising on quality or compliance.&quot;
+                <Typography
+                  variant="body1"
+                  sx={{ color: 'text.primary', fontStyle: 'italic', lineHeight: 1.7 }}
+                >
+                  &quot;I believe in building scalable, secure, and governance-driven delivery
+                  pipelines that empower teams to ship faster without compromising on quality or
+                  compliance.&quot;
                 </Typography>
               </Box>
             </motion.div>
@@ -119,7 +151,10 @@ const About = () => {
                       >
                         {item.number}
                       </Typography>
-                      <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, color: 'text.primary', fontSize: '1rem' }}>
+                      <Typography
+                        variant="h6"
+                        sx={{ fontWeight: 600, mb: 1, color: 'text.primary', fontSize: '1rem' }}
+                      >
                         {item.label}
                       </Typography>
                       <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>

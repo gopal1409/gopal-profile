@@ -22,9 +22,7 @@ const AnimatedCard = ({ children, delay = 0, sx = {}, ...props }) => {
         }}
         {...props}
       >
-        <CardContent sx={{ p: 3, '&:last-child': { pb: 3 } }}>
-          {children}
-        </CardContent>
+        <CardContent sx={{ p: 3, '&:last-child': { pb: 3 } }}>{children}</CardContent>
       </Card>
     </motion.div>
   );
