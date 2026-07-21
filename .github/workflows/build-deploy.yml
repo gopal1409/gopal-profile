@@ -70,7 +70,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v7
         with:
-          name: dist-node-20.x
+          name: dist-node-24.x
           path: dist/
 
       - name: Setup Pages
