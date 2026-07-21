@@ -60,8 +60,15 @@ jobs:
   trivy-scan:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
-    
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
