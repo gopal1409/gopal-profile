@@ -1,12 +1,10 @@
-import { Box, Container, Typography, Grid, Paper, Chip, Accordion, AccordionSummary, AccordionDetails, useTheme } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper, Chip, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import { motion } from 'framer-motion';
-import { ExpandMore as ExpandMoreIcon, School as SchoolIcon, Timer as TimerIcon, BarChart as BarChartIcon } from '@mui/icons-material';
+import { ExpandMore as ExpandMoreIcon, School as SchoolIcon, Timer as TimerIcon } from '@mui/icons-material';
 import SectionHeader from '@components/ui/SectionHeader';
 import { trainingPrograms } from '@utils/resumeData';
 
 const Training = () => {
-  const theme = useTheme();
-
   return (
     <Box
       id="training"

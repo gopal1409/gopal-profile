@@ -1,8 +1,7 @@
-import { Chip, useTheme } from '@mui/material';
+import { Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 
-const SkillChip = ({ label, icon, delay = 0, color = 'primary' }) => {
-  const theme = useTheme();
+const SkillChip = ({ label, icon, delay = 0 }) => {
 
   return (
     <motion.div

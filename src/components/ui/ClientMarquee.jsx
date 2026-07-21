@@ -1,8 +1,7 @@
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const ClientMarquee = ({ clients }) => {
-  const theme = useTheme();
   const duplicatedClients = [...clients, ...clients];
 
   return (

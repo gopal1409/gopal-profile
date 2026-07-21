@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Button, Grid, Paper, Chip, IconButton, useTheme } from '@mui/material';
+import { Box, Container, Typography, Button, Grid, Paper, Chip, IconButton } from '@mui/material';
 import { motion } from 'framer-motion';
 import {
   ArrowDownward as ArrowDownIcon,
@@ -11,8 +11,6 @@ import StatCounter from '@components/ui/StatCounter';
 import SocialLinks from '@components/ui/SocialLinks';
 
 const Hero = () => {
-  const theme = useTheme();
-
   return (
     <Box
       id="home"

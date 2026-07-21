@@ -1,7 +1,6 @@
 import { Box, Typography, Paper, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import {
-  Timeline as MuiTimeline,
   TimelineItem as MuiTimelineItem,
   TimelineSeparator,
   TimelineConnector,

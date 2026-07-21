@@ -3,7 +3,6 @@ import {
   LinkedIn as LinkedInIcon,
   Email as EmailIcon,
   Phone as PhoneIcon,
-  GitHub as GitHubIcon,
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 

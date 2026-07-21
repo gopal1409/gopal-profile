@@ -1,7 +1,5 @@
 import { Box, Container, Typography, Paper, Chip } from '@mui/material';
-import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab';
 import { motion } from 'framer-motion';
-import { Work as WorkIcon } from '@mui/icons-material';
 import SectionHeader from '@components/ui/SectionHeader';
 import { experience } from '@utils/resumeData';
 
@@ -22,7 +20,7 @@ const Experience = () => {
           subtitle="A track record of delivering enterprise-scale DevOps transformation and cloud modernization initiatives."
         />
 
-        {experience.map((job, index) => (
+        {experience.map((job) => (
           <motion.div
             key={job.company}
             initial={{ opacity: 0, y: 30 }}

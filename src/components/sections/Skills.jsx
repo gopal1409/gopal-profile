@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Grid, Paper, Chip, useTheme } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import {
   GitHub as GitHubIcon,
@@ -25,7 +25,6 @@ const iconMap = {
 };
 
 const Skills = () => {
-  const theme = useTheme();
 
   return (
     <Box

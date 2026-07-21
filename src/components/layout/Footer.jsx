@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Grid, IconButton, Divider, useTheme } from '@mui/material';
+import { Box, Container, Typography, Grid, IconButton, Divider } from '@mui/material';
 import { motion } from 'framer-motion';
 import {
   LinkedIn as LinkedInIcon,
@@ -11,7 +11,6 @@ import { NAV_LINKS } from '@utils/constants';
 import { smoothScrollTo } from '@utils/helpers';
 
 const Footer = () => {
-  const theme = useTheme();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [

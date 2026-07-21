@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Box, Container, Typography, Grid, Paper, TextField, Button, MenuItem, Alert, CircularProgress, IconButton, useTheme } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper, TextField, Button, MenuItem, Alert, CircularProgress } from '@mui/material';
 import { motion } from 'framer-motion';
 import {
   Send as SendIcon,
@@ -36,7 +36,6 @@ const validationRules = {
 };
 
 const Contact = () => {
-  const theme = useTheme();
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -144,7 +143,7 @@ const Contact = () => {
               </Typography>
 
               <Typography variant="body1" color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
-                Whether you need enterprise DevOps transformation, CI/CD modernization, Kubernetes platform engineering, or hands-on training for your teams — I'm here to help.
+                Whether you need enterprise DevOps transformation, CI/CD modernization, Kubernetes platform engineering, or hands-on training for your teams — I&apos;m here to help.
               </Typography>
 
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, mb: 4 }}>
@@ -268,7 +267,7 @@ const Contact = () => {
                       icon={<CheckCircleIcon />}
                       sx={{ mb: 3, borderRadius: 2 }}
                     >
-                      Thank you! Your enquiry has been sent successfully. I'll get back to you within 24 hours.
+                      Thank you! Your enquiry has been sent successfully. I&apos;ll get back to you within 24 hours.
                     </Alert>
                   </motion.div>
                 )}

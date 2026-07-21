@@ -1,9 +1,8 @@
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@hooks/useScrollAnimation';
 
 const SectionHeader = ({ overline, title, subtitle, align = 'center', sx = {} }) => {
-  const theme = useTheme();
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (

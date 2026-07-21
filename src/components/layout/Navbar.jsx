@@ -3,14 +3,12 @@ import {
   AppBar,
   Toolbar,
   Box,
-  Typography,
   Button,
   IconButton,
   useScrollTrigger,
   useTheme,
   useMediaQuery,
   Container,
-  Fade,
 } from '@mui/material';
 import {
   Menu as MenuIcon,

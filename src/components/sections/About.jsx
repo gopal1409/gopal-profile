@@ -1,10 +1,8 @@
-import { Box, Container, Typography, Grid, Paper, useTheme } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
 import SectionHeader from '@components/ui/SectionHeader';
-import { personalInfo } from '@utils/resumeData';
 
 const About = () => {
-  const theme = useTheme();
 
   const highlights = [
     {
@@ -59,7 +57,7 @@ const About = () => {
               </Typography>
 
               <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.8, fontSize: '1.05rem' }}>
-                My approach combines <strong style={{ color: '#f1f5f9' }}>deep technical knowledge</strong> with practical implementation experience. I don't just advise — I architect, build, and deliver solutions that work in production environments at scale.
+                My approach combines <strong style={{ color: '#f1f5f9' }}>deep technical knowledge</strong> with practical implementation experience. I don&apos;t just advise — I architect, build, and deliver solutions that work in production environments at scale.
               </Typography>
 
               <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.8, fontSize: '1.05rem' }}>
@@ -76,7 +74,7 @@ const About = () => {
                 }}
               >
                 <Typography variant="body1" sx={{ color: 'text.primary', fontStyle: 'italic', lineHeight: 1.7 }}>
-                  "I believe in building scalable, secure, and governance-driven delivery pipelines that empower teams to ship faster without compromising on quality or compliance."
+                  &quot;I believe in building scalable, secure, and governance-driven delivery pipelines that empower teams to ship faster without compromising on quality or compliance.&quot;
                 </Typography>
               </Box>
             </motion.div>

@@ -1,13 +1,11 @@
-import { Box, Container, Typography, Grid, Paper, Chip, Button, useTheme } from '@mui/material';
+import { Box, Container, Typography, Paper, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Timeline as MuiTimeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot, TimelineOppositeContent } from '@mui/lab';
-import { Launch as LaunchIcon, CalendarToday as CalendarIcon } from '@mui/icons-material';
+import { CalendarToday as CalendarIcon } from '@mui/icons-material';
 import SectionHeader from '@components/ui/SectionHeader';
 import { projects } from '@utils/resumeData';
 
 const Projects = () => {
-  const theme = useTheme();
-
   return (
     <Box
       id="projects"
