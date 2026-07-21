@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { Helmet } from '@dr.pogodin/react-helmet';
+import { Helmet } from 'react-helmet-async';
 import Hero from '@components/sections/Hero';
 import About from '@components/sections/About';
 import Services from '@components/sections/Services';
