@@ -39,7 +39,7 @@ jobs:
         run: npx prettier --check "src/**/*.{js,jsx,css,json}"
 
       - name: Run tests
-        run: vitest --run --passWithNoTests
+        run: npm run test
 
       - name: Build application
         run: npm run build
