@@ -1,19 +1,41 @@
 # ============================================
-# Gopal Das Portfolio - Production Compose
+# Gopal Das Portfolio - Development Compose
 # ============================================
 version: "3.9"
 
 services:
   app:
-    image: gopal1409/gopal-portfolio:latest
-    container_name: gopal-portfolio-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: gopal-portfolio-dev
     ports:
-      - "81:8080"
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    command: npm run dev
+    stdin_open: true
+    tty: true
     networks:
       - portfolio-network
-    restart: unless-stopped
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: gopal-portfolio-nginx
+    ports:
+      - "80:8080"
+    depends_on:
+      - app
+    networks:
+      - portfolio-network
 
 networks:
   portfolio-network:
