@@ -3,8 +3,32 @@ name: Code Quality & Analysis
 on:
   push:
     branches: [ main, master ]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'index.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.js'
+      - 'server.mjs'
+      - '.eslintrc.cjs'
+      - '.prettierrc'
+      - 'jsconfig.json'
+      - '.github/workflows/quality-checks.yml'
   pull_request:
     branches: [ main, master ]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'index.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.js'
+      - 'server.mjs'
+      - '.eslintrc.cjs'
+      - '.prettierrc'
+      - 'jsconfig.json'
+      - '.github/workflows/quality-checks.yml'
 
 jobs:
   quality-checks:

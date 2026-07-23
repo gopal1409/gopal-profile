@@ -7,6 +7,18 @@ name: CD - Deploy to Production
 on:
   push:
     branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'index.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.js'
+      - 'server.mjs'
+      - 'Dockerfile'
+      - 'nginx/**'
+      - 'docker-compose.prod.yml'
+      - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 env:

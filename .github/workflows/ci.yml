@@ -12,8 +12,36 @@ permissions:
 on:
   push:
     branches: [main, develop]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'index.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.js'
+      - 'server.mjs'
+      - 'Dockerfile'
+      - 'nginx/**'
+      - '.eslintrc.cjs'
+      - '.prettierrc'
+      - 'jsconfig.json'
+      - '.github/workflows/ci.yml'
   pull_request:
     branches: [main, develop]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'index.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.js'
+      - 'server.mjs'
+      - 'Dockerfile'
+      - 'nginx/**'
+      - '.eslintrc.cjs'
+      - '.prettierrc'
+      - 'jsconfig.json'
+      - '.github/workflows/ci.yml'
 
 jobs:
   lint-and-test:
