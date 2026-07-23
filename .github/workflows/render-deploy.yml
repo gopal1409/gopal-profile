@@ -45,10 +45,10 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Deploy to Render
-        uses: render-experiments/deploy@v1
+        uses: ttskch/render-deploy@v1
         with:
-          apiKey: ${{ secrets.RENDER_API_KEY }}
-          serviceId: ${{ secrets.RENDER_SERVICE_ID }}
-          branch: main
-          waitForDeployment: true
+          api-key: ${{ secrets.RENDER_API_KEY }}
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          interval: 10
+          timeout: 600
           # The Render service must be configured as a Docker Web Service and will build using this repo's Dockerfile.
