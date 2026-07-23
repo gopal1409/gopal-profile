@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/yourusername/gopal-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/gopal-portfolio/actions/workflows/ci.yml)
 [![CD](https://github.com/yourusername/gopal-portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/yourusername/gopal-portfolio/actions/workflows/deploy.yml)
+[![Render](https://img.shields.io/badge/Render-Docker-blue?logo=render)](https://dashboard.render.com/)
 [![Docker](https://img.shields.io/badge/docker-ready-blue?logo=docker)](https://hub.docker.com/)
 [![React](https://img.shields.io/badge/react-19-61DAFB?logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/vite-6-646CFF?logo=vite)](https://vitejs.dev/)
@@ -207,7 +208,17 @@ npm run build
 netlify deploy --prod --dir=dist
 ```
 
-### 3. Vercel
+### 3. Render (Docker)
+Render can deploy this app as a Docker Web Service using the existing `Dockerfile`.
+- Create a new Docker Web Service in Render.
+- Connect your GitHub repo and use branch `main`.
+- No custom build command is required; Render will build from `Dockerfile`.
+- Add the repository secrets in Render for:
+  - `VITE_EMAILJS_SERVICE_ID`
+  - `VITE_EMAILJS_TEMPLATE_ID`
+  - `VITE_EMAILJS_PUBLIC_KEY`
+
+### 4. Vercel
 ```bash
 # Install Vercel CLI
 npm i -g vercel
