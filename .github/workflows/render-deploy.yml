@@ -55,23 +55,53 @@ jobs:
       url: ${{ vars.RENDER_SITE_URL || 'https://gopal-portfolio.onrender.com' }}
 
     steps:
-      - name: Deploy to Render
+      - name: Check Render secrets loaded
         env:
           RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
           RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
           if [ -n "$RENDER_DEPLOY_HOOK_URL" ]; then
-            echo "Using Render deploy hook"
-            curl --fail --silent --show-error \
-              -X POST "$RENDER_DEPLOY_HOOK_URL" \
-              -H "Content-Type: application/json" \
-              -d '{}'
-          elif [ -n "$RENDER_SERVICE_ID" ] && [ -n "$RENDER_API_KEY" ]; then
+            echo "::add-mask::$RENDER_DEPLOY_HOOK_URL"
+            echo "Render deploy hook secret loaded: yes"
+            echo "Render deploy hook fingerprint: $(printf '%s' "$RENDER_DEPLOY_HOOK_URL" | sha256sum | cut -c1-12)"
+          else
+            echo "Render deploy hook secret loaded: no"
+          fi
+
+          if [ -n "$RENDER_SERVICE_ID" ]; then
+            echo "::add-mask::$RENDER_SERVICE_ID"
+            echo "Render service ID secret loaded: yes"
+            echo "Render service ID fingerprint: $(printf '%s' "$RENDER_SERVICE_ID" | sha256sum | cut -c1-12)"
+          else
+            echo "Render service ID secret loaded: no"
+          fi
+
+          if [ -n "$RENDER_API_KEY" ]; then
+            echo "::add-mask::$RENDER_API_KEY"
+            echo "Render API key secret loaded: yes"
+            echo "Render API key fingerprint: $(printf '%s' "$RENDER_API_KEY" | sha256sum | cut -c1-12)"
+          else
+            echo "Render API key secret loaded: no"
+          fi
+
+      - name: Deploy to Render
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        run: |
+          if [ -n "$RENDER_SERVICE_ID" ] && [ -n "$RENDER_API_KEY" ]; then
             echo "Using Render service API"
             curl --fail --silent --show-error \
               -X POST "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys" \
               -H "Authorization: Bearer $RENDER_API_KEY" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+          elif [ -n "$RENDER_DEPLOY_HOOK_URL" ]; then
+            echo "Using Render deploy hook"
+            curl --fail --silent --show-error \
+              -X POST "$RENDER_DEPLOY_HOOK_URL" \
               -H "Content-Type: application/json" \
               -d '{}'
           else
@@ -81,7 +111,7 @@ jobs:
 
       - name: Add Render URL to job summary
         env:
-          RENDER_SITE_URL: ${{ vars.RENDER_SITE_URL }}
+          RENDER_SITE_URL: ${{ secrets.RENDER_SITE_URL || 'https://gopal-portfolio.onrender.com' }}
         run: |
           echo "## Render deployment" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
