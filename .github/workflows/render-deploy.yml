@@ -2,21 +2,22 @@ name: Deploy Docker service to Render
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
-    name: Build and Test
+    name: Build, test, and containerize
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
-          node-version: '24.x'
+          node-version: '20.x'
           cache: 'npm'
 
       - name: Install dependencies
@@ -28,12 +29,20 @@ jobs:
       - name: Run tests
         run: npm run test
 
-      - name: Build production assets (verify)
+      - name: Build production assets
         run: npm run build
         env:
           VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
           VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
           VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            --build-arg VITE_EMAILJS_SERVICE_ID="${{ secrets.VITE_EMAILJS_SERVICE_ID }}" \
+            --build-arg VITE_EMAILJS_TEMPLATE_ID="${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}" \
+            --build-arg VITE_EMAILJS_PUBLIC_KEY="${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}" \
+            -t gopal-portfolio:ci .
 
   deploy:
     name: Deploy to Render Docker Service
@@ -41,14 +50,10 @@ jobs:
     needs: build
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v7
-
       - name: Deploy to Render
-        uses: ttskch/render-deploy@v1.0.0
-        with:
-          api-key: ${{ secrets.RENDER_API_KEY }}
-          service-id: ${{ secrets.RENDER_SERVICE_ID }}
-          interval: 10
-          timeout: 600
-          # The Render service must be configured as a Docker Web Service and will build using this repo's Dockerfile.
+        run: |
+          curl --fail --silent --show-error \
+            -X POST "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{}'
