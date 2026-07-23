@@ -37,7 +37,7 @@ const Training = () => {
 
         <Grid container spacing={4}>
           {trainingPrograms.map((program, index) => (
-            <Grid item xs={12} md={4} key={program.title}>
+            <Grid item xs={12} md={program.objectives ? 12 : 4} key={program.title}>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -108,6 +108,41 @@ const Training = () => {
                     variant="overline"
                     sx={{ color: 'text.secondary', fontSize: '0.7rem', mb: 1.5, display: 'block' }}
                   >
+                    {program.objectives ? 'COURSE OBJECTIVES' : 'MODULES'}
+                  </Typography>
+
+                  {program.objectives && (
+                    <Box
+                      sx={{
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' },
+                        gap: 1,
+                        mb: 3,
+                      }}
+                    >
+                      {program.objectives.map((objective) => (
+                        <Chip
+                          key={objective}
+                          label={objective}
+                          size="small"
+                          sx={{
+                            justifyContent: 'flex-start',
+                            height: 'auto',
+                            py: 0.75,
+                            '& .MuiChip-label': {
+                              whiteSpace: 'normal',
+                              lineHeight: 1.35,
+                            },
+                          }}
+                        />
+                      ))}
+                    </Box>
+                  )}
+
+                  <Typography
+                    variant="overline"
+                    sx={{ color: 'text.secondary', fontSize: '0.7rem', mb: 1.5, display: 'block' }}
+                  >
                     MODULES
                   </Typography>
 
@@ -142,13 +177,80 @@ const Training = () => {
                           </Typography>
                         </AccordionSummary>
                         <AccordionDetails sx={{ pt: 0 }}>
-                          <Typography
-                            variant="caption"
-                            color="text.secondary"
-                            sx={{ display: 'block' }}
-                          >
-                            <strong style={{ color: '#94a3b8' }}>Tools:</strong> {module.tools}
-                          </Typography>
+                          {module.tools && (
+                            <Typography
+                              variant="caption"
+                              color="text.secondary"
+                              sx={{ display: 'block' }}
+                            >
+                              <strong style={{ color: '#94a3b8' }}>Tools:</strong> {module.tools}
+                            </Typography>
+                          )}
+
+                          {module.sections && (
+                            <Box
+                              sx={{
+                                display: 'grid',
+                                gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
+                                gap: 2,
+                              }}
+                            >
+                              {module.sections.map((section) => (
+                                <Box
+                                  key={section.title}
+                                  sx={{
+                                    p: 2,
+                                    border: '1px solid',
+                                    borderColor: 'divider',
+                                    borderRadius: 2,
+                                    backgroundColor: 'rgba(15, 23, 42, 0.35)',
+                                  }}
+                                >
+                                  <Typography
+                                    variant="subtitle2"
+                                    sx={{ color: 'text.primary', fontWeight: 700, mb: 1 }}
+                                  >
+                                    {section.title}
+                                  </Typography>
+
+                                  <Box
+                                    component="ul"
+                                    sx={{
+                                      pl: 2.25,
+                                      my: 0,
+                                      color: 'text.secondary',
+                                      '& li': { mb: 0.5 },
+                                    }}
+                                  >
+                                    {section.topics.map((topic) => (
+                                      <Typography
+                                        component="li"
+                                        variant="caption"
+                                        key={topic}
+                                        sx={{ display: 'list-item' }}
+                                      >
+                                        {topic}
+                                      </Typography>
+                                    ))}
+                                  </Box>
+
+                                  {section.lab && (
+                                    <Typography
+                                      variant="caption"
+                                      sx={{
+                                        display: 'block',
+                                        mt: 1.5,
+                                        color: 'primary.light',
+                                        lineHeight: 1.6,
+                                      }}
+                                    >
+                                      <strong>Hands-on Lab:</strong> {section.lab}
+                                    </Typography>
+                                  )}
+                                </Box>
+                              ))}
+                            </Box>
+                          )}
                         </AccordionDetails>
                       </Accordion>
                     ))}
