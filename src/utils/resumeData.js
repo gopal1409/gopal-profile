@@ -379,7 +379,7 @@ export const services = [
 
 export const trainingPrograms = [
   {
-    title: 'Technology Training Curriculum',
+    title: 'Cloud Threat Modelling',
     level: 'Foundation to Advanced',
     duration: '5 Days',
     objectives: [
