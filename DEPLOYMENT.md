@@ -154,6 +154,26 @@ Create `netlify.toml` in project root:
   NODE_VERSION = "20"
 ```
 
+## Render
+
+Use the included `render.yaml` or configure a Node Web Service manually.
+
+Render settings:
+- Build command: `npm ci && npm run build`
+- Start command: `npm start`
+- Health check path: `/health`
+- Node version: `20`
+
+The start command runs `server.mjs`, which serves the built `dist/` folder and listens on Render's `PORT` environment variable.
+
+Add these environment variables in Render if you want the contact form enabled:
+
+```env
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
 ## Vercel
 
 ### Method 1: Git Integration
