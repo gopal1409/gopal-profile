@@ -1,4 +1,4 @@
-name: Deploy Docker service to Render
+name: Deploy service to Render
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build, test, and containerize
+    name: Build and test
     runs-on: ubuntu-latest
 
     steps:
@@ -36,18 +36,13 @@ jobs:
           VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
           VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
 
-      - name: Build Docker image
-        run: |
-          docker build \
-            --build-arg VITE_EMAILJS_SERVICE_ID="${{ secrets.VITE_EMAILJS_SERVICE_ID }}" \
-            --build-arg VITE_EMAILJS_TEMPLATE_ID="${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}" \
-            --build-arg VITE_EMAILJS_PUBLIC_KEY="${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}" \
-            -t gopal-portfolio:ci .
-
   deploy:
-    name: Deploy to Render Docker Service
+    name: Deploy to Render
     runs-on: ubuntu-latest
     needs: build
+    environment:
+      name: render-production
+      url: ${{ vars.RENDER_SITE_URL || 'https://gopal-portfolio.onrender.com' }}
 
     steps:
       - name: Deploy to Render
@@ -73,3 +68,11 @@ jobs:
             echo "Missing Render deployment credentials. Set RENDER_DEPLOY_HOOK_URL or both RENDER_SERVICE_ID and RENDER_API_KEY."
             exit 1
           fi
+
+      - name: Add Render URL to job summary
+        env:
+          RENDER_SITE_URL: ${{ vars.RENDER_SITE_URL || 'https://gopal-portfolio.onrender.com' }}
+        run: |
+          echo "## Render deployment" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Site URL: $RENDER_SITE_URL" >> "$GITHUB_STEP_SUMMARY"
